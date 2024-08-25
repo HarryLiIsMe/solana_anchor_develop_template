@@ -9,15 +9,15 @@ all:
 	build
 
 build:
-	anchor build --provider.wallet $(WALLET_KEYPAIR) --provider.cluster $(RPC_URL)
+	anchor build --provider.wallet $(basename $(WALLET_KEYPAIR))1.json --provider.cluster $(RPC_URL)
 	$(RM) target/deploy/$(PROGRAM_NAME)-keypair.json
 
 clean_build:
-	anchor clean --provider.wallet $(WALLET_KEYPAIR) --provider.cluster $(RPC_URL)
+	anchor clean --provider.wallet $(basename $(WALLET_KEYPAIR))1.json --provider.cluster $(RPC_URL)
 	$(RM) target
 
 deploy:
-	anchor deploy -p $(PROGRAM_NAME) --program-keypair $(PROGRAM_KEYPAIR) --provider.wallet $(WALLET_KEYPAIR) --provider.cluster $(RPC_URL)
+	anchor deploy -p $(PROGRAM_NAME) --program-keypair $(basename $(PROGRAM_KEYPAIR))1.json --provider.wallet $(basename $(WALLET_KEYPAIR))1.json --provider.cluster $(RPC_URL)
 
 test:
 	anchor test
@@ -32,23 +32,23 @@ chain:
 clean_chain:
 	$(RM) test-ledger
 
-new_program_account:
-	solana-keygen new --no-bip39-passphrase -f -o $(PROGRAM_KEYPAIR)
+new_program_account%:
+	solana-keygen new --no-bip39-passphrase -f -o $(basename $(PROGRAM_KEYPAIR))$*.json
 
-get_program_account:
-	solana address -k $(PROGRAM_KEYPAIR)
+get_program_account%:
+	solana address -k $(basename $(PROGRAM_KEYPAIR))$*.json
 
-new_data_account:
-	solana-keygen new --no-bip39-passphrase -f -o $(DATA_KEYPAIR)
+new_data_account%:
+	solana-keygen new --no-bip39-passphrase -f -o $(basename $(DATA_KEYPAIR))$*.json
 
-get_data_account:
-	solana address -k $(DATA_KEYPAIR)
+get_data_account%:
+	solana address -k $(basename $(DATA_KEYPAIR))$*.json
 
-create_wallet:
-	solana-keygen new --no-bip39-passphrase -f -o $(WALLET_KEYPAIR)
+create_wallet%:
+	solana-keygen new --no-bip39-passphrase -f -o $(basename $(WALLET_KEYPAIR))$*.json
 
-get_wallet:
-	solana-keygen pubkey $(WALLET_KEYPAIR)
+get_wallet%:
+	solana-keygen pubkey $(basename $(WALLET_KEYPAIR))$*.json
 
 fmt:
 	cargo fmt
