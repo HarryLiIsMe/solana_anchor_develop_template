@@ -8,14 +8,14 @@ import {
     web3,
     workspace,
 } from '@coral-xyz/anchor';
-import { SolanaAnchorTemplate } from '../target/types/solana_anchor_template';
+import { CounterProgram } from '../target/types/counter_program';
 import { assert } from 'chai';
 
-describe('solana_anchor_template', () => {
+describe('counter_program', () => {
     // Configure the client to use the local cluster.
     setProvider(AnchorProvider.env());
 
-    let program: Program<SolanaAnchorTemplate>;
+    let program: Program<CounterProgram>;
     let dataAccount1: web3.Keypair;
     let wallet1: web3.Keypair;
     let wallet2: web3.Keypair;
@@ -31,8 +31,7 @@ describe('solana_anchor_template', () => {
     let count: number;
 
     beforeEach(async () => {
-        program =
-            workspace.SolanaAnchorTemplate as Program<SolanaAnchorTemplate>;
+        program = workspace.CounterProgram as Program<CounterProgram>;
 
         dataAccount1 = web3.Keypair.generate();
         wallet1 = web3.Keypair.generate();

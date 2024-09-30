@@ -1,9 +1,9 @@
 use anchor_lang::prelude::*;
 
-declare_id!("4XgjbunV7XZZbzPTVmKpUZNEMcN3bwT3SGMBAjdJNtiU");
+declare_id!("ABfrNLYZfKUDu6HhKA9wnoagMr9cYve5VzNkENTJumuL");
 
 #[program]
-pub mod solana_anchor_template {
+pub mod counter_program {
     use super::*;
 
     pub fn initialize(

@@ -7,16 +7,16 @@ resolution = true
 skip-lint = false
 
 [programs.localnet]
-solana_anchor_template = "4XgjbunV7XZZbzPTVmKpUZNEMcN3bwT3SGMBAjdJNtiU"
+counter_program = "ABfrNLYZfKUDu6HhKA9wnoagMr9cYve5VzNkENTJumuL"
 
 [programs.testnet]
-solana_anchor_template = "973AXy198biaWLGN1VpstU4FHXx74UHhEq4UZQf7SiHm"
+counter_program = "973AXy198biaWLGN1VpstU4FHXx74UHhEq4UZQf7SiHm"
 
 [programs.devnet]
-solana_anchor_template = "973AXy198biaWLGN1VpstU4FHXx74UHhEq4UZQf7SiHm"
+counter_program = "973AXy198biaWLGN1VpstU4FHXx74UHhEq4UZQf7SiHm"
 
 [programs.mainnet]
-solana_anchor_template = "973AXy198biaWLGN1VpstU4FHXx74UHhEq4UZQf7SiHm"
+counter_program = "973AXy198biaWLGN1VpstU4FHXx74UHhEq4UZQf7SiHm"
 
 [registry]
 url = "https://api.apr.dev"
