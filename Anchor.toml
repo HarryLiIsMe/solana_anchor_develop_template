@@ -7,7 +7,7 @@ resolution = true
 skip-lint = false
 
 [programs.localnet]
-solana_anchor_template = "DfAN6n44DSXTojyiHUA1rKqUtJ3VdhoBuHpZcbDZ42kS"
+solana_anchor_template = "4XgjbunV7XZZbzPTVmKpUZNEMcN3bwT3SGMBAjdJNtiU"
 
 [programs.testnet]
 solana_anchor_template = "973AXy198biaWLGN1VpstU4FHXx74UHhEq4UZQf7SiHm"

@@ -22,24 +22,13 @@ describe('solana_anchor_template', () => {
     let latestBlockhash: Awaited<
         ReturnType<web3.Connection['getLatestBlockhash']>
     >;
-    let counter: Awaited<
-        ReturnType<
-            AccountClient<
-                SolanaAnchorTemplate,
-                'counter',
-                {
-                    name: 'counter';
-                    discriminator: [255, 176, 4, 245, 188, 253, 124, 25];
-                },
-                {
-                    count: BN;
-                    step: BN;
-                    admin: web3.PublicKey;
-                    feePayer: web3.PublicKey;
-                }
-            >['fetch']
-        >
-    >;
+    let counter: {
+        count: BN;
+        step: BN;
+        admin: web3.PublicKey;
+        feePayer: web3.PublicKey;
+    };
+    let count: number;
 
     beforeEach(async () => {
         program =
@@ -93,7 +82,17 @@ describe('solana_anchor_template', () => {
             lastValidBlockHeight: latestBlockhash.lastValidBlockHeight,
         });
         assert.equal(confirm1.value.err, null);
+
+        count = (
+            await program.methods
+                .getCount()
+                .accounts({
+                    counter: dataAccount1.publicKey,
+                })
+                .view()
+        ).toNumber();
         counter = await program.account.counter.fetch(dataAccount1.publicKey);
+        assert.equal(count, 10000);
         assert.equal(counter.count.toNumber(), 10000);
         assert.equal(counter.step.toNumber(), 5);
         assert.equal(counter.feePayer.toString(), wallet1.publicKey.toString());
@@ -117,7 +116,17 @@ describe('solana_anchor_template', () => {
             lastValidBlockHeight: latestBlockhash.lastValidBlockHeight,
         });
         assert.equal(confirm1.value.err, null);
+
+        count = (
+            await program.methods
+                .getCount()
+                .accounts({
+                    counter: dataAccount1.publicKey,
+                })
+                .view()
+        ).toNumber();
         counter = await program.account.counter.fetch(dataAccount1.publicKey);
+        assert.equal(count, 10005);
         assert.equal(counter.count.toNumber(), 10005);
         assert.equal(counter.step.toNumber(), 5);
         assert.equal(counter.feePayer.toString(), wallet1.publicKey.toString());
@@ -139,7 +148,17 @@ describe('solana_anchor_template', () => {
             lastValidBlockHeight: latestBlockhash.lastValidBlockHeight,
         });
         assert.equal(confirm2.value.err, null);
+
+        count = (
+            await program.methods
+                .getCount()
+                .accounts({
+                    counter: dataAccount1.publicKey,
+                })
+                .view()
+        ).toNumber();
         counter = await program.account.counter.fetch(dataAccount1.publicKey);
+        assert.equal(count, 10000);
         assert.equal(counter.count.toNumber(), 10000);
         assert.equal(counter.step.toNumber(), 5);
         assert.equal(counter.feePayer.toString(), wallet1.publicKey.toString());
@@ -164,7 +183,17 @@ describe('solana_anchor_template', () => {
             lastValidBlockHeight: latestBlockhash.lastValidBlockHeight,
         });
         assert.equal(confirm1.value.err, null);
+
+        count = (
+            await program.methods
+                .getCount()
+                .accounts({
+                    counter: dataAccount1.publicKey,
+                })
+                .view()
+        ).toNumber();
         counter = await program.account.counter.fetch(dataAccount1.publicKey);
+        assert.equal(count, 10000);
         assert.equal(counter.count.toNumber(), 10000);
         assert.equal(counter.step.toNumber(), 5);
         assert.equal(counter.feePayer.toString(), wallet1.publicKey.toString());

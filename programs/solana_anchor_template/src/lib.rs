@@ -1,6 +1,6 @@
 use anchor_lang::prelude::*;
 
-declare_id!("DfAN6n44DSXTojyiHUA1rKqUtJ3VdhoBuHpZcbDZ42kS");
+declare_id!("4XgjbunV7XZZbzPTVmKpUZNEMcN3bwT3SGMBAjdJNtiU");
 
 #[program]
 pub mod solana_anchor_template {
@@ -20,29 +20,37 @@ pub mod solana_anchor_template {
         Ok(())
     }
 
-    pub fn increment(ctx: Context<CountRW>) -> Result<()> {
+    pub fn increment(ctx: Context<CounterWrite>) -> Result<u64> {
         let counter = &mut ctx.accounts.counter;
         counter.count += counter.step;
-        Ok(())
+        Ok(counter.count)
     }
 
-    pub fn decrement(ctx: Context<CountRW>) -> Result<()> {
+    pub fn decrement(ctx: Context<CounterWrite>) -> Result<u64> {
         let counter = &mut ctx.accounts.counter;
         counter.count -= counter.step;
-        Ok(())
+        Ok(counter.count)
     }
 
     pub fn reset_amdin(ctx: Context<ResetAdmin>, new_admin: Pubkey) -> Result<()> {
         // 权限检查, 只允许admin账户执行.
         // ctx.accounts.admin是额外的签名者, 用于验证签名和权限控制.
-        if ctx.accounts.counter.admin != ctx.accounts.admin.key() {
-            return Err(CounterErr::AdminCheckFailed.into());
-        }
+
+        require!(
+            ctx.accounts.counter.admin == ctx.accounts.admin.key(),
+            CounterErr::AdminCheckFailed
+        );
 
         let counter = &mut ctx.accounts.counter;
         counter.admin = new_admin;
 
         Ok(())
+    }
+
+    pub fn get_count(ctx: Context<CounterRead>) -> Result<u64> {
+        let count: u64 = ctx.accounts.counter.count;
+
+        Ok(count)
     }
 }
 
@@ -58,8 +66,13 @@ pub struct Initialize<'info> {
 }
 
 #[derive(Accounts)]
-pub struct CountRW<'info> {
+pub struct CounterWrite<'info> {
     #[account(mut)]
+    pub counter: Account<'info, Counter>,
+}
+
+#[derive(Accounts)]
+pub struct CounterRead<'info> {
     pub counter: Account<'info, Counter>,
 }
 
@@ -71,7 +84,7 @@ pub struct ResetAdmin<'info> {
     pub admin: Signer<'info>,
 }
 
-// Counter表示实际存储的数据.
+// Counter表示实际存储的数据/数据账户.
 #[account]
 #[derive(InitSpace)]
 pub struct Counter {
