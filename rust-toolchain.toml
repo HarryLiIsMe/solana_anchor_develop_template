@@ -1,0 +1,5 @@
+[toolchain]
+channel = "stable-x86_64-unknown-linux-gnu"
+components = [ "rustc", "rust-std", "cargo", "rustfmt", "clippy", "rust-src", "rust-docs", "rustc-dev" ]
+targets = [ "solana", "x86_64-unknown-linux-gnu", "wasm32-unknown-unknown" ]
+profile = "complete"

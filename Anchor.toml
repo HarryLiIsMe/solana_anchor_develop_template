@@ -7,16 +7,16 @@ resolution = true
 skip-lint = false
 
 [programs.localnet]
-counter_program = "ABfrNLYZfKUDu6HhKA9wnoagMr9cYve5VzNkENTJumuL"
+counter_program = "29yhZZKFaQuwR8qj7Kgaow3f9ptwxGV7QEoEYxsqFiVQ"
 
 [programs.testnet]
-counter_program = "973AXy198biaWLGN1VpstU4FHXx74UHhEq4UZQf7SiHm"
+counter_program = "29yhZZKFaQuwR8qj7Kgaow3f9ptwxGV7QEoEYxsqFiVQ"
 
 [programs.devnet]
-counter_program = "973AXy198biaWLGN1VpstU4FHXx74UHhEq4UZQf7SiHm"
+counter_program = "29yhZZKFaQuwR8qj7Kgaow3f9ptwxGV7QEoEYxsqFiVQ"
 
 [programs.mainnet]
-counter_program = "973AXy198biaWLGN1VpstU4FHXx74UHhEq4UZQf7SiHm"
+counter_program = "29yhZZKFaQuwR8qj7Kgaow3f9ptwxGV7QEoEYxsqFiVQ"
 
 [registry]
 url = "https://api.apr.dev"
