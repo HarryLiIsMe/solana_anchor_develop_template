@@ -26,6 +26,6 @@ cluster = "Localnet"
 wallet = "keypairs/wallet/wallet-keypair1.json"
 
 [scripts]
-test = "npm run ts-mocha -p ./tsconfig.json -t 1000000 tests/**/*.ts"
+test = "pnpm run ts-mocha -p ./tsconfig.json -t 1000000 tests/**/*.ts"
 
 
