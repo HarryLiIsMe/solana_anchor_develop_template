@@ -1,9 +1,9 @@
 {
   "scripts": {
-    "fmt": "prettier */*{.js,.ts} \"*/**/*{.js,.ts}\" --check --config .prettierrc.json",
-    "fmt:fix": "prettier */*{.js,.ts} \"*/**/*{.js,.ts}\" -w --config .prettierrc.json",
-    "lint": "eslint 'tests/*.ts' 'tests/**/*.ts' -c .eslintrc.json",
-    "lint:fix": "eslint 'tests/*.ts' 'tests/**/*.ts' --fix -c .eslintrc.json"
+    "fmt": "npx prettier */*{.js,.ts} \"*/**/*{.js,.ts}\" --check --config .prettierrc.json",
+    "fmt:fix": "npx prettier */*{.js,.ts} \"*/**/*{.js,.ts}\" -w --config .prettierrc.json",
+    "lint": "npx eslint 'tests/*.ts' 'tests/**/*.ts' -c .eslintrc.json",
+    "lint:fix": "npx eslint 'tests/*.ts' 'tests/**/*.ts' --fix -c .eslintrc.json"
   },
   "dependencies": {
     "@coral-xyz/anchor": "^0.30.0"
