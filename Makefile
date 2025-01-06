@@ -23,6 +23,9 @@ test:
 	anchor test
 	$(RM) target/deploy/$(PROGRAM_NAME)-keypair.json
 
+install:
+	pnpm i
+
 upgrade:
 
 chain:
