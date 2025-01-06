@@ -55,13 +55,13 @@ get_wallet%:
 
 fmt:
 	cargo fmt
-	yarn fmt:fix
+	pnpm run fmt:fix
 
 lint:
 	cargo clippy --workspace
 	cargo clippy --workspace --no-default-features
 	cargo clippy --workspace --tests
 	$(RM) target/deploy/$(PROGRAM_NAME)-keypair.json
-	yarn lint
+	pnpm run lint
 
 clean: clean_build clean_chain
