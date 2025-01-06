@@ -7,6 +7,7 @@ include .env
 
 all: build
 
+
 build:
 	anchor build --provider.wallet $(basename $(WALLET_KEYPAIR))1.json --provider.cluster $(RPC_URL)
 	$(RM) target/deploy/$(PROGRAM_NAME)-keypair.json
