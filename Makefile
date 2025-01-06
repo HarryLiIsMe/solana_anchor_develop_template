@@ -5,8 +5,7 @@ include .env
 
 .PHONY: build test
 
-all:
-	build
+all: build
 
 build:
 	anchor build --provider.wallet $(basename $(WALLET_KEYPAIR))1.json --provider.cluster $(RPC_URL)
