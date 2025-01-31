@@ -1,22 +1,24 @@
 [toolchain]
+# 必须和当前的anchor版本匹配, 否则会编译报错. 可以通过anchor --version查看版本.
 anchor_version = "0.30.1"    # `anchor-cli` version to use(requires `avm`)
-solana_version = "1.18.9" 
+# 必须和当前的solana版本匹配, 否则会编译报错. 可以通过solana --version查看版本.
+solana_version = "2.0.25"
 
 [features]
 resolution = true
 skip-lint = false
 
 [programs.localnet]
-counter_program = "29yhZZKFaQuwR8qj7Kgaow3f9ptwxGV7QEoEYxsqFiVQ"
+counter_program = "Hi9aWiJBRgwUoBp5eBtSbsVtJooQwj9incbUSNMAQw4r"
 
 [programs.testnet]
-counter_program = "29yhZZKFaQuwR8qj7Kgaow3f9ptwxGV7QEoEYxsqFiVQ"
+counter_program = "Hi9aWiJBRgwUoBp5eBtSbsVtJooQwj9incbUSNMAQw4r"
 
 [programs.devnet]
-counter_program = "29yhZZKFaQuwR8qj7Kgaow3f9ptwxGV7QEoEYxsqFiVQ"
+counter_program = "Hi9aWiJBRgwUoBp5eBtSbsVtJooQwj9incbUSNMAQw4r"
 
 [programs.mainnet]
-counter_program = "29yhZZKFaQuwR8qj7Kgaow3f9ptwxGV7QEoEYxsqFiVQ"
+counter_program = "Hi9aWiJBRgwUoBp5eBtSbsVtJooQwj9incbUSNMAQw4r"
 
 [registry]
 url = "https://api.apr.dev"
