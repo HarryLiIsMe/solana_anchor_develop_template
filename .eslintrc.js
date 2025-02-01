@@ -1,4 +1,3 @@
-
 const ts_eslint_plugin = require('@typescript-eslint/eslint-plugin');
 const ts_eslint_parser = require('@typescript-eslint/parser');
 const eslint_js = require('@eslint/js');
@@ -6,7 +5,12 @@ const eslint_js = require('@eslint/js');
 module.exports = [
     {
         ...eslint_js.configs.recommended,
-        files: ['test/*.ts', 'test/**/*.ts', 'migrations/*.ts', 'migrations/**/*.ts'],
+        files: [
+            'test/*.ts',
+            'test/**/*.ts',
+            'migrations/*.ts',
+            'migrations/**/*.ts',
+        ],
         languageOptions: {
             parser: ts_eslint_parser,
             parserOptions: {

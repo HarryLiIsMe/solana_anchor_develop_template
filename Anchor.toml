@@ -9,16 +9,16 @@ resolution = true
 skip-lint = false
 
 [programs.localnet]
-counter_program = "Hi9aWiJBRgwUoBp5eBtSbsVtJooQwj9incbUSNMAQw4r"
+counter_program = "2fpCFmXHwtqGmUGEoPdwJjddiGEF7ZWmo2itkmvD6j6K"
 
 [programs.testnet]
-counter_program = "Hi9aWiJBRgwUoBp5eBtSbsVtJooQwj9incbUSNMAQw4r"
+counter_program = "2fpCFmXHwtqGmUGEoPdwJjddiGEF7ZWmo2itkmvD6j6K"
 
 [programs.devnet]
-counter_program = "Hi9aWiJBRgwUoBp5eBtSbsVtJooQwj9incbUSNMAQw4r"
+counter_program = "2fpCFmXHwtqGmUGEoPdwJjddiGEF7ZWmo2itkmvD6j6K"
 
 [programs.mainnet]
-counter_program = "Hi9aWiJBRgwUoBp5eBtSbsVtJooQwj9incbUSNMAQw4r"
+counter_program = "2fpCFmXHwtqGmUGEoPdwJjddiGEF7ZWmo2itkmvD6j6K"
 
 [registry]
 url = "https://api.apr.dev"
@@ -28,6 +28,6 @@ cluster = "Localnet"
 wallet = "keypairs/wallet/wallet-keypair1.json"
 
 [scripts]
-test = "pnpm run ts-mocha -p ./tsconfig.json -t 1000000 tests/**/*.ts"
+test = "npx ts-mocha -p ./tsconfig.json -t 1000000 tests/**/*.ts"
 
 

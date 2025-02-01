@@ -36,9 +36,8 @@ describe('counter_program', () => {
         dataAccount1 = web3.Keypair.generate();
         wallet1 = web3.Keypair.generate();
         wallet2 = web3.Keypair.generate();
-        latestBlockhash = await program.provider.connection.getLatestBlockhash(
-            'confirmed',
-        );
+        latestBlockhash =
+            await program.provider.connection.getLatestBlockhash('confirmed');
         const airdropTx1 = await program.provider.connection.requestAirdrop(
             wallet1.publicKey,
             web3.LAMPORTS_PER_SOL,
@@ -49,9 +48,8 @@ describe('counter_program', () => {
             lastValidBlockHeight: latestBlockhash.lastValidBlockHeight,
         });
 
-        latestBlockhash = await program.provider.connection.getLatestBlockhash(
-            'confirmed',
-        );
+        latestBlockhash =
+            await program.provider.connection.getLatestBlockhash('confirmed');
         const airdropTx2 = await program.provider.connection.requestAirdrop(
             wallet1.publicKey,
             web3.LAMPORTS_PER_SOL,
@@ -62,9 +60,8 @@ describe('counter_program', () => {
             lastValidBlockHeight: latestBlockhash.lastValidBlockHeight,
         });
 
-        latestBlockhash = await program.provider.connection.getLatestBlockhash(
-            'confirmed',
-        );
+        latestBlockhash =
+            await program.provider.connection.getLatestBlockhash('confirmed');
         const start1 = new BN(10000);
         const step1 = new BN(5);
         const tx1 = await program.methods
@@ -99,9 +96,8 @@ describe('counter_program', () => {
     });
 
     it('Counter operator test1!', async () => {
-        latestBlockhash = await program.provider.connection.getLatestBlockhash(
-            'confirmed',
-        );
+        latestBlockhash =
+            await program.provider.connection.getLatestBlockhash('confirmed');
         const tx1 = await program.methods
             .increment()
             .accounts({
@@ -131,9 +127,8 @@ describe('counter_program', () => {
         assert.equal(counter.feePayer.toString(), wallet1.publicKey.toString());
         assert.equal(counter.admin.toString(), wallet2.publicKey.toString());
 
-        latestBlockhash = await program.provider.connection.getLatestBlockhash(
-            'confirmed',
-        );
+        latestBlockhash =
+            await program.provider.connection.getLatestBlockhash('confirmed');
         const tx2 = await program.methods
             .decrement()
             .accounts({
@@ -165,9 +160,8 @@ describe('counter_program', () => {
     });
 
     it('Reset admin test1!', async () => {
-        latestBlockhash = await program.provider.connection.getLatestBlockhash(
-            'confirmed',
-        );
+        latestBlockhash =
+            await program.provider.connection.getLatestBlockhash('confirmed');
         const tx1 = await program.methods
             .resetAmdin(wallet1.publicKey)
             .accounts({
