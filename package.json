@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "fmt": "npx prettier --config .prettierrc.json 'tests/*.ts' 'tests/**/*.ts' 'migrations/*.ts' 'migrations/**/*.ts' '.eslintrc.js'",
+    "fmt": "npx prettier --config .prettierrc.json --check 'tests/*.ts' 'tests/**/*.ts' 'migrations/*.ts' 'migrations/**/*.ts' '.eslintrc.js'",
     "fmt:fix": "npx prettier --config .prettierrc.json --write 'tests/*.ts' 'tests/**/*.ts' 'migrations/*.ts' 'migrations/**/*.ts' '.eslintrc.js'",
     "lint": "npx eslint -c .eslintrc.js",
     "lint:fix": "npx eslint --fix -c .eslintrc.js"
