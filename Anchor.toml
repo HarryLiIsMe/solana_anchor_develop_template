@@ -1,8 +1,8 @@
 [toolchain]
 # 必须和当前的anchor版本匹配, 否则会编译报错. 可以通过anchor --version查看版本.
-anchor_version = "0.30.1"    # `anchor-cli` version to use(requires `avm`)
+anchor_version = "0.31.1"   # `anchor-cli` version to use(requires `avm`)
 # 必须和当前的solana版本匹配, 否则会编译报错. 可以通过solana --version查看版本.
-solana_version = "2.0.25"
+solana_version = "2.2.14"
 
 [features]
 resolution = true

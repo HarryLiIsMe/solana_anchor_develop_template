@@ -9,7 +9,7 @@ import {
     workspace,
 } from '@coral-xyz/anchor';
 import { CounterProgram } from '../target/types/counter_program';
-import { assert } from 'chai';
+import { assert, expect } from 'chai';
 
 describe('counter_program', () => {
     // Configure the client to use the local cluster.

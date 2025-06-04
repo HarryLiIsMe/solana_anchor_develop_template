@@ -5,10 +5,10 @@
     "lint": "npx eslint -c .eslintrc.js",
     "lint:fix": "npx eslint --fix -c .eslintrc.js"
   },
-  "dependencies": {
-    "@coral-xyz/anchor": "^0.30.0"
-  },
   "devDependencies": {
+    "@coral-xyz/anchor": "^0.31.1",
+    "@solana/spl-token": "^0.4.13",
+    "@solana/web3.js": "^1.98.2",
     "@projectsophon/eslint-plugin-typescript-enum": "^2.2.0",
     "@types/bn.js": "^5.1.0",
     "@types/chai": "^4.3.0",
@@ -29,6 +29,7 @@
     "ts-mocha": "^10.0.0",
     "prettier": "^3.4.2",
     "typescript": "^5.7.2",
-    "typescript-eslint": "^8.18.2"
+    "typescript-eslint": "^8.18.2",
+    "sleep-promise": "^9.1.0"
   }
 }
